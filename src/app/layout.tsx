@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google';
 import './globals.css';
 import { AppSidebar } from '@/shared/components/layout/AppSidebar';
 import { SidebarProvider } from '@/shared/components/ui/sidebar';
+import { AuthProvider } from '@/shared/context/AuthContext';
 
 const roboto = Roboto({
   variable: '--font-roboto-sans',
@@ -22,10 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${roboto.variable} text-text antialiased`}>
-        <SidebarProvider>
-          <AppSidebar />
-          <main>{children}</main>
-        </SidebarProvider>
+        <AuthProvider>
+          <SidebarProvider>
+            <AppSidebar />
+            <main className="w-full">{children}</main>
+          </SidebarProvider>
+        </AuthProvider>
       </body>
     </html>
   );

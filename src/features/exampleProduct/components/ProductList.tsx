@@ -1,3 +1,4 @@
+import { Product } from '../models/product.types';
 import { getProducts } from '../services/getProducts';
 
 export const ProductList = async () => {
