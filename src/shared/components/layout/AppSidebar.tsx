@@ -8,6 +8,7 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarGroup,
+  useSidebar,
 } from '@/shared/components/ui/sidebar';
 import { Gamepad2, Bot, Store, List, PlusSquare } from 'lucide-react';
 import Image from 'next/image';
@@ -41,10 +42,16 @@ const links = [
 ];
 
 export function AppSidebar() {
+  const { open } = useSidebar();
+
   return (
-    <Sidebar>
+    <Sidebar collapsible="icon">
       <SidebarHeader>
-        <Image src="/logo/logoFull.png" alt="Doppler" width={100} height={100} />
+        {open ? (
+          <Image className="h-8 w-fit" src="/logo/logoFull.png" alt="Doppler" height={100} width={100} />
+        ) : (
+          <Image className="h-8 w-fit" src="/logo/logo.png" alt="Doppler" height={100} width={100} />
+        )}
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
