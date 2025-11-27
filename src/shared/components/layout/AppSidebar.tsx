@@ -20,7 +20,7 @@ import { useAuth } from '@/shared/hooks/useAuth';
 const links = [
   {
     title: 'Play Now',
-    url: '#',
+    url: 'play',
     icon: Gamepad2,
   },
   {
